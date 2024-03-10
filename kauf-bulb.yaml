@@ -6,13 +6,8 @@ substitutions:
   # yaml file by redefining them.
   #
   # packages:
-  #   kauf.rgbww: github://KaufHA/kauf-rgbww-bulbs/kauf-bulb.yaml
+  #   kauf.rgbww: github://f03809/kauf-rgbww-bulbs/kauf-bulb.yaml
   #
-
-  name: kauf-bulb              # **** CHANGE DEVICE NAME TO SOMETHING UNIQUE PER DEVICE.  RENAME YAML FILE TO SAME NAME.    ****
-                               # **** USE DASHES (-) INSTEAD OF SPACES OR UNDERSCORE (_).  USE ONLY LOWER CASE LETTERS.     ****
-
-  friendly_name: Kauf Bulb     # **** CHANGE FRIENDLY NAME TO SOMETHING UNIQUE PER DEVICE ****
 
   disable_entities:  "true"    # set to "false" to have all entities show up in Home Assistant automatically
   disable_webserver: "false"   # set to "true" to disable webserver listening on port 80.
@@ -99,7 +94,7 @@ esphome:
 button:
   - platform: restart
     id: restart_button
-    name: $friendly_name Restart Firmware
+    name: Restart Firmware
     entity_category: diagnostic
     disabled_by_default: $disable_entities
 
@@ -186,7 +181,7 @@ light:
     default_transition_length: 0ms
     icon: mdi:store-cog
     aux: true
-    name: $friendly_name Warm RGB
+    name: Warm RGB
     forced_hash: 4077116474
     forced_addr: 28
     global_addr: global_forced_addr
@@ -200,7 +195,7 @@ light:
     default_transition_length: 0ms
     icon: mdi:store-cog-outline
     aux: true
-    name: $friendly_name Cold RGB
+    name: Cold RGB
     forced_hash: 301094535
     forced_addr: 40
     global_addr: global_forced_addr
@@ -236,7 +231,7 @@ light:
 select:
 
   - platform: template
-    name: $friendly_name Effect
+    name: Effect
     id: effect
     optimistic: true
     options:
@@ -257,7 +252,7 @@ select:
     global_addr: global_forced_addr
 
   - platform: template
-    name: $friendly_name DDP Debug
+    name: DDP Debug
     id: select_ddp_debug
     optimistic: true
     options:
@@ -277,7 +272,7 @@ select:
 
   # default light state on boot
   - platform: template
-    name: $friendly_name Power On State
+    name: Power On State
     id: select_boot_state
     optimistic: true
     options:
@@ -314,7 +309,7 @@ select:
 # https://esphome.io/components/number/template.html
 number:      # set max power output for PWMs
   - platform: template
-    name: ${friendly_name} Max Power
+    name: Max Power
     min_value: 1
     max_value: 100
     step: 1
@@ -342,7 +337,7 @@ number:      # set max power output for PWMs
       - script.execute: script_save_changes
 
   - platform: template
-    name: ${friendly_name} Default Fade
+    name: Default Fade
     min_value: 0
     max_value: 5000
     step: 50
@@ -367,7 +362,7 @@ number:      # set max power output for PWMs
 switch:
   - platform: template
     id: switch_no_hass
-    name: $friendly_name No HASS
+    name: No HASS
     optimistic: true
     entity_category: config
     disabled_by_default: $disable_entities
@@ -387,7 +382,7 @@ switch:
 # https://esphome.io/components/sensor/uptime.html
 sensor:
   - platform: uptime
-    name: $friendly_name Uptime
+    name: Uptime
     update_interval: 60s
     entity_category: diagnostic
     disabled_by_default: $disable_entities
@@ -398,7 +393,7 @@ sensor:
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: $friendly_name IP Address
+      name: IP Address
       entity_category: diagnostic
       disabled_by_default: $disable_entities
 

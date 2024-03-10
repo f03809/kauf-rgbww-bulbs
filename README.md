@@ -10,7 +10,7 @@ substitutions:
   friendly_name: Bedroom Lamp
 
 packages:
-  kauf.rgbww: github://KaufHA/kauf-rgbww-bulbs/kauf-bulb.yaml
+  kauf.rgbww: github://f03809/kauf-rgbww-bulbs/kauf-bulb.yaml
 
 wifi:
   ssid: !secret wifi_ssid
